@@ -2,7 +2,11 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>파일 저장소</title>
+
+  <!-- 📱 반응형 필수 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>내 파일 다운로드 사이트</title>
 
   <style>
     :root {
@@ -25,6 +29,14 @@
       color: var(--text);
       padding: 30px;
       transition: 0.3s;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* 📱 전체 레이아웃 중앙 + 반응형 */
+    .container {
+      width: 100%;
+      max-width: 560px;
     }
 
     h1 { margin-bottom: 10px; }
@@ -55,13 +67,13 @@
       margin-bottom: 15px;
       border-radius: 8px;
       border: 1px solid #ccc;
+      font-size: 16px;
     }
 
     .file-box {
       background: var(--box);
       padding: 20px;
       border-radius: 12px;
-      max-width: 520px;
       max-height: 320px;
       overflow-y: auto;
     }
@@ -73,49 +85,68 @@
     .download-btn {
       display: inline-block;
       margin-top: 5px;
-      padding: 8px 12px;
+      padding: 10px 14px;
       background: var(--btn);
       color: white;
       text-decoration: none;
       border-radius: 8px;
+      font-size: 15px;
+    }
+
+    /* 📱 모바일에서 여백 줄이기 */
+    @media (max-width: 480px) {
+      body {
+        padding: 15px;
+      }
+
+      .file-box {
+        padding: 15px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <h1>파일 저장소</h1>
+  <div class="container">
 
-  <div class="top-bar">
-    🌙 <button class="dark-btn" onclick="toggleDark()">다크모드</button>
-  </div>
+    <h1>📁 파일 저장소</h1>
 
-  <input type="text" id="searchInput" placeholder="파일 검색..." onkeyup="searchFiles()">
-
-  <div class="file-box">
-
-    <div class="file-item">
-      <strong>LegacyLauncher.exe</strong><br>
-      <a class="download-btn"
-         href="https://drive.google.com/uc?export=download&id=13NJs4MlYnf05-HJG3dlRRoQ27zg6ExWk">
-         ⬇ 다운로드
-      </a>
+    <div class="top-bar">
+      🌙 <button class="dark-btn" onclick="toggleDark()">다크모드</button>
     </div>
 
-    <div class="file-item">
-      <strong>게임런처.zip</strong><br>
-      <a class="download-btn"
-         href="https://drive.google.com/uc?export=download&id=1NWp0hSXg5Tb_xPX2uP4gNfo3wx2t97uc">
-         ⬇ 다운로드
-      </a>
-    </div>
+    <input type="text" id="searchInput" placeholder="파일 검색..." onkeyup="searchFiles()">
 
-    <div class="file-item">
-      <strong>photo.png</strong><br>
-      <a class="download-btn"
-         href="https://drive.google.com/uc?export=download&id=파일ID3">
-         ⬇ 다운로드
-      </a>
+    <div class="file-box">
+
+      <div class="file-item">
+        <strong>LegacyLauncher.exe</strong><br>
+        <a class="download-btn"
+           target="_blank"
+           href="https://drive.google.com/uc?export=download&id=13NJs4MlYnf05-HJG3dlRRoQ27zg6ExWk">
+          ⬇ 다운로드
+        </a>
+      </div>
+
+      <div class="file-item">
+        <strong>게임런처.zip</strong><br>
+        <a class="download-btn"
+           target="_blank"
+           href="https://drive.google.com/uc?export=download&id=1NWp0hSXg5Tb_xPX2uP4gNfo3wx2t97uc">
+          ⬇ 다운로드
+        </a>
+      </div>
+
+      <div class="file-item">
+        <strong>photo.png</strong><br>
+        <a class="download-btn"
+           target="_blank"
+           href="https://drive.google.com/uc?export=download&id=파일ID3">
+          ⬇ 다운로드
+        </a>
+      </div>
+
     </div>
 
   </div>
@@ -137,7 +168,3 @@
 
 </body>
 </html>
-
-
-
-
