@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>내 파일 다운로드 사이트</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 30px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    /* 검색창 */
+    #searchInput {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    /* 파일 박스 (스크롤 핵심) */
+    .file-box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      max-height: 300px;   /* 여기 중요 */
+      overflow-y: auto;    /* 스크롤 */
+    }
+
+    .file-item {
+      margin-bottom: 15px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 5px;
+      padding: 8px 12px;
+      background: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .download-btn:hover {
+      background: #43a047;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>📁 내 파일 저장소</h1>
+  <p>파일 이름을 검색하거나 아래에서 선택하세요.</p>
+
+  <!-- 🔍 검색창 -->
+  <input type="text" id="searchInput" placeholder="파일 검색..." onkeyup="searchFiles()">
+
+  <!-- 📦 파일 목록 -->
+  <div class="file-box" id="fileList">
+
+    <div class="file-item">
+      <strong>test.zip</strong><br>
+      <a class="download-btn"
+         href="https://drive.google.com/uc?export=download&id=파일ID1">
+         ⬇ 다운로드
+      </a>
+    </div>
+
+    <div class="file-item">
+      <strong>app.exe</strong><br>
+      <a class="download-btn"
+         href="https://drive.google.com/uc?export=download&id=파일ID2">
+         ⬇ 다운로드
+      </a>
+    </div>
+
+    <div class="file-item">
+      <strong>photo.png</strong><br>
+      <a class="download-btn"
+         href="https://drive.google.com/uc?export=download&id=파일ID3">
+         ⬇ 다운로드
+      </a>
+    </div>
+
+  </div>
+
+  <!-- 🧠 검색 기능 -->
+  <script>
+    function searchFiles() {
+      let input = document.getElementById("searchInput").value.toLowerCase();
+      let items = document.getElementsByClassName("file-item");
+
+      for (let i = 0; i < items.length; i++) {
+        let text = items[i].innerText.toLowerCase();
+        items[i].style.display = text.includes(input) ? "" : "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
