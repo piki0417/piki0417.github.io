@@ -44,9 +44,10 @@
       font-weight: bold;
     }
 
-    .dark-btn { background: #333; color: white; }
-    .cat-btn { background: #ddd; }
-    body.dark .cat-btn { background: #444; color: white; }
+    .dark-btn {
+      background: #333;
+      color: white;
+    }
 
     #searchInput {
       width: 100%;
@@ -87,29 +88,21 @@
 
   <div class="top-bar">
     🌙 <button class="dark-btn" onclick="toggleDark()">다크모드</button>
-
-    📂
-    <button class="cat-btn" onclick="filterCategory('all')">전체</button>
-    <button class="cat-btn" onclick="filterCategory('game')">게임</button>
-    <button class="cat-btn" onclick="filterCategory('data')">자료</button>
-    <button class="cat-btn" onclick="filterCategory('photo')">사진</button>
   </div>
 
   <input type="text" id="searchInput" placeholder="파일 검색..." onkeyup="searchFiles()">
 
   <div class="file-box">
 
-    <!-- 🎮 게임 -->
-    <div class="file-item" data-category="game">
-      <strong>MinecraftInstaller.exe</strong></strong><br>
+    <div class="file-item">
+      <strong>MinecraftInstaller.exe</strong><br>
       <a class="download-btn"
          href="https://drive.google.com/uc?export=download&id=14gUmcy6c9ndQfcYA1MuTvyGg3TnhyzBp">
          ⬇ 다운로드
       </a>
     </div>
 
-    <!-- 📄 자료 -->
-    <div class="file-item" data-category="data">
+    <div class="file-item">
       <strong>study.pdf</strong><br>
       <a class="download-btn"
          href="https://drive.google.com/uc?export=download&id=파일ID2">
@@ -117,8 +110,7 @@
       </a>
     </div>
 
-    <!-- 🖼 사진 -->
-    <div class="file-item" data-category="photo">
+    <div class="file-item">
       <strong>photo.png</strong><br>
       <a class="download-btn"
          href="https://drive.google.com/uc?export=download&id=파일ID3">
@@ -133,14 +125,6 @@
       document.body.classList.toggle("dark");
     }
 
-    function filterCategory(cat) {
-      let items = document.getElementsByClassName("file-item");
-      for (let item of items) {
-        item.style.display =
-          (cat === "all" || item.dataset.category === cat) ? "" : "none";
-      }
-    }
-
     function searchFiles() {
       let input = document.getElementById("searchInput").value.toLowerCase();
       let items = document.getElementsByClassName("file-item");
@@ -153,9 +137,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
